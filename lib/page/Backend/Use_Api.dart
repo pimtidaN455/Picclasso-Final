@@ -17,7 +17,7 @@ class use_API {
 
   Sign_up(email, password, firstname, lastname) async {
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/signupuser/"),
+      Uri.parse("http://202.28.72.73:10101/signupuser/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -51,7 +51,7 @@ class use_API {
     print(password);
     print(id_device);
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/loginN/"),
+      Uri.parse("http://202.28.72.73:10101/loginN/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -81,7 +81,7 @@ class use_API {
 
   Logout(tokenID) async {
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/logout/"),
+      Uri.parse("http://202.28.72.73:10101/logout/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -110,7 +110,7 @@ class use_API {
     user_file user_file_ = new user_file();
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/UrlImgCloud/"),
+      Uri.parse("http://202.28.72.73:10101/UrlImgCloud/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -133,12 +133,12 @@ class use_API {
   }
 
   Change_Album(var idphotho, var nameoldalbum, var namenewalbum) async {
-    print("////////////////");
+    print("**********//////////////////*******************");
     user_file user_file_ = new user_file();
     var now = await DateTime.now();
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/change_Album/"),
+      Uri.parse("http://202.28.72.73:10101/change_Album/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -164,7 +164,7 @@ class use_API {
 
   Reset_password(email) async {
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/resetpassword/"),
+      Uri.parse("http://202.28.72.73:10101/resetpassword/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -197,7 +197,7 @@ class use_API {
 
   update_name(tokenID, Firstname, Lastname) async {
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/userdataupdate/"),
+      Uri.parse("http://202.28.72.73:10101/userdataupdate/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -222,7 +222,7 @@ class use_API {
 
   detect_word(word) async {
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/detectword/"),
+      Uri.parse("http://202.28.72.73:10101/detectword/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -244,13 +244,13 @@ class use_API {
   }
 
   manage_Album(namealbum, nameoldalbum, keyword, description, status) async {
-    print("////////////////");
+    print("**********//////////////////*******************");
     print(namealbum);
     user_file user_file_ = new user_file();
     var now = await DateTime.now();
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/Album/"),
+      Uri.parse("http://202.28.72.73:10101/Album/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -284,7 +284,7 @@ class use_API {
     await user_file_.getdata_user_file();
 
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/Addcloud_storage/"),
+      Uri.parse("http://202.28.72.73:10101/Addcloud_storage/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -313,7 +313,7 @@ class use_API {
     user_file user_file_ = new user_file();
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/send_verified_email/"),
+      Uri.parse("http://202.28.72.73:10101/send_verified_email/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -336,7 +336,7 @@ class use_API {
     user_file user_file_ = new user_file();
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/imagecloudstorage/"),
+      Uri.parse("http://202.28.72.73:10101/imagecloudstorage/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -363,7 +363,7 @@ class use_API {
     await user_file_.getdata_user_file();
 
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/uploadImage/"),
+      Uri.parse("http://202.28.72.73:10101/uploadImage/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -396,7 +396,7 @@ class use_API {
     await user_file_.getdata_user_file();
 
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/updatekeyword/"),
+      Uri.parse("http://202.28.72.73:10101/updatekeyword/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -425,7 +425,7 @@ class use_API {
     print("Getphoto");
     await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/DataAlbum/"),
+      Uri.parse("http://202.28.72.73:10101/DataAlbum/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -467,7 +467,7 @@ class use_API {
     //user_file user_file_ = await new user_file();
     //await user_file_.getdata_user_file();
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/DataAlbum/"),
+      Uri.parse("http://202.28.72.73:10101/DataAlbum/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -494,7 +494,7 @@ class use_API {
     await user_file_.getdata_user_file();
 
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/Deletephoto_cloud/"),
+      Uri.parse("http://202.28.72.73:10101/Deletephoto_cloud/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -524,7 +524,7 @@ class use_API {
     await user_file_.getdata_user_file();
 
     final http.Response response = await http.post(
-      Uri.parse("http://10.0.2.2:8000/Deletedataphoto/"),
+      Uri.parse("http://202.28.72.73:10101/Deletedataphoto/"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

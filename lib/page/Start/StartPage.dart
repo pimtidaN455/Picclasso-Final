@@ -83,7 +83,7 @@ class _Start_pageState extends State<Start_page> {
   }
 
   Widget ShowButton() {
-    return Column(
+    return Row(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +92,7 @@ class _Start_pageState extends State<Start_page> {
         SizedBox(
           width: 20.0,
         ),
-        StartButton(),
+        // StartButton(),
         HowtoButtonn(),
       ],
     );
@@ -120,16 +120,29 @@ class _Start_pageState extends State<Start_page> {
   Widget PermissionButton() {
     return FlatButton(
       child: Text(
-        'Permission',
+        'Login',
         style: TextStyle(
           color: MyStyle().whiteColor,
           fontSize: 20,
         ),
       ),
-      color: MyStyle().deleteColor,
+      color: MyStyle().perpleColor,
       onPressed: () async {
         bool req = await Permission.storage.request().isGranted;
         print(req);
+        if (req == true) {
+          MaterialPageRoute materialPageRoute = MaterialPageRoute(
+              builder: (BuildContext context) => Startlogin());
+
+          Navigator.of(this.context).push(materialPageRoute);
+        } else {
+          MaterialPageRoute materialPageRoute = MaterialPageRoute(
+              builder: (BuildContext context) => Start_page());
+
+          Navigator.of(this.context).push(materialPageRoute);
+
+          bool req = await Permission.storage.request().isGranted;
+        }
       },
     );
   }

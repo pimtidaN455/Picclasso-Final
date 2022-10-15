@@ -13,7 +13,7 @@ import 'package:project_photo_learn/page/Start/StartPage.dart';
 
 void main() async {
   // ignore: deprecated_member_use
-  FlatButton(
+  /*FlatButton(
     child: Padding(
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Text('Grant Request'),
@@ -23,7 +23,7 @@ void main() async {
       bool req = await Permission.storage.request().isGranted;
       print(req);
     },
-  );
+  );*/
   WidgetsFlutterBinding.ensureInitialized();
   user_file user = await new user_file();
   // print("DDDDDDDDDDDDDDDDDDDDDDDDDD");
