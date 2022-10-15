@@ -60,10 +60,13 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
     //print(this.imageListC.length);
     print(this.iconselect);
     print("ค่าาาาาา");
-
+    var nameAppBar;
+    this.iconselect == 'move'
+        ? nameAppBar = 'Select Move'
+        : nameAppBar = 'Select Delete';
     return Scaffold(
       appBar: AppBar(
-        title: Text("Select Device",
+        title: Text(nameAppBar,
             style: TextStyle(
               color: MyStyle().whiteColor,
             )),
@@ -89,7 +92,7 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
           ),
           IconButton(
             icon: Icon(
-              Icons.assignment_turned_in_outlined,
+              Icons.arrow_circle_right,
               color: MyStyle().whiteColor,
             ),
             onPressed: () async {
@@ -191,11 +194,11 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
                           Center(
                             child: CircleAvatar(
                               backgroundColor: this.iconselect == 'move'
-                                  ? Color.fromARGB(255, 255, 255, 255)
+                                  ? MyStyle().faColor
                                   : Color.fromARGB(255, 255, 0, 0),
                               child: Icon(
                                 Icons.check,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                                color: MyStyle().whiteColor,
                               ),
                             ),
                           )
@@ -221,11 +224,11 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
                           Center(
                             child: CircleAvatar(
                               backgroundColor: this.iconselect == 'move'
-                                  ? Color.fromARGB(255, 192, 192, 192)
-                                  : Color.fromARGB(255, 170, 22, 22),
+                                  ? MyStyle().famonColor
+                                  : Color.fromARGB(255, 160, 23, 23),
                               child: Icon(
                                 Icons.check,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                                color: Color.fromARGB(255, 255, 255, 255),
                               ),
                             ),
                           )
@@ -312,7 +315,7 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
                     duration: const Duration(milliseconds: 300),
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(221, 20, 147, 185),
+                      color: MyStyle().perpleColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Icon(
@@ -337,10 +340,10 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
         height: 190.0,
         width: MediaQuery.of(context).size.width - 100.0,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
+            borderRadius: BorderRadius.circular(0),
+            color: MyStyle().perpleColor,
             image: DecorationImage(
-                image: new NetworkImage(url), fit: BoxFit.fill)),
+                fit: BoxFit.cover, image: new NetworkImage(url))),
       );
   @override
   void dispose() {

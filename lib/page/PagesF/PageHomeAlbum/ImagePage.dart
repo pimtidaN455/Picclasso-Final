@@ -181,7 +181,7 @@ class Allimages extends State<ShowImage> {
             IconButton(
               icon: Icon(
                 Icons.drive_file_move_outline,
-                color: MyStyle().blackColor,
+                color: MyStyle().faColor,
               ),
               onPressed: () async {
                 List<ImageData> imageListD = [];
@@ -249,7 +249,7 @@ class Allimages extends State<ShowImage> {
             IconButton(
               icon: Icon(
                 Icons.delete_outline_outlined,
-                color: MyStyle().blackColor,
+                color: MyStyle().deleteColor,
               ),
               onPressed: () async {
                 List<ImageData> imageListD = [];
@@ -538,7 +538,7 @@ class _GridItem_Cloud extends StatelessWidget {
                           duration: const Duration(milliseconds: 300),
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(221, 20, 147, 185),
+                            color: MyStyle().perpleColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Icon(

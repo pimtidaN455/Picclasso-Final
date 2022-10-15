@@ -10,5 +10,7 @@ class MyStyle {
   Color deleteColor = Color.fromARGB(255, 160, 47, 47);
   Color addColor = Color.fromARGB(255, 72, 164, 76);
   Color perpleColorSawang = Color.fromARGB(255, 193, 164, 255);
+  Color faColor = Color.fromARGB(255, 94, 166, 255);
+  Color famonColor = Color.fromARGB(255, 68, 106, 154);
   Widget showLogo() => Image.asset('images/logo2.png');
 }

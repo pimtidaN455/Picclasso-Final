@@ -3,15 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
-import 'package:path/path.dart';
-import 'package:project_photo_learn/Object/imagecloud.dart';
 import 'package:project_photo_learn/Sqfl/DBHelper.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/Use_Api.dart';
-import 'package:project_photo_learn/page/PagesF/PageSearch/IR_Search.dart';
 import 'package:project_photo_learn/page/PagesF/PageSearch/Select_Text_show.dart';
 import 'package:project_photo_learn/page/PagesF/PageSearch/search.dart';
-
 import 'package:project_photo_learn/page/PagesF/PageSearch/tag_state.dart';
 
 class Searchpage extends StatelessWidget {
@@ -22,6 +18,7 @@ class Searchpage extends StatelessWidget {
 
   final controller = Get.put(TagStateController());
   final textController = TextEditingController();
+  final textControllerText = TextEditingController();
   late double screen;
 
   //final _fromKey = GlobalKey<FormState>();
@@ -45,7 +42,37 @@ class Searchpage extends StatelessWidget {
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
-          "\n   Enter the keyword you want to search. ",
+          "\n   Text you want to search. ",
+          style: TextStyle(
+            fontSize: 20,
+            color: MyStyle().blackColor,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Rajdhani',
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: TextFormField(
+            controller: textControllerText,
+            onEditingComplete: () {
+              controller.listTagSearch.add(textControllerText.text);
+              textControllerText.clear();
+            },
+            autofocus: false,
+            style: DefaultTextStyle.of(context)
+                .style
+                .copyWith(fontStyle: FontStyle.italic),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Text you want to search ',
+              //prefixIcon: Icon(Icons.tag),
+              enabledBorder:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+            ),
+          ),
+        ),
+        Text(
+          "\n   Keyword you want to search. ",
           style: TextStyle(
             fontSize: 20,
             color: MyStyle().blackColor,
@@ -69,16 +96,7 @@ class Searchpage extends StatelessWidget {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Keywords you want to search ',
-                prefixIcon: Icon(Icons.tag),
-                /*   suffixIcon: IconButton(
-                  onPressed: () {
-                    if (textController.text != "") {
-                      controller.listTagSearch.add(textController.text);
-                    }
-                    textController.clear();
-                  },
-                  icon: const Icon(Icons.add),
-                ),*/
+                //prefixIcon: Icon(Icons.tag),
                 enabledBorder:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
               ),
@@ -91,7 +109,7 @@ class Searchpage extends StatelessWidget {
                 controller.listTagSearch.add(suggestion),
             itemBuilder: (BuildContext context, Object? itemData) {
               return ListTile(
-                leading: Icon(Icons.tag),
+                //leading: Icon(Icons.tag),
                 title: Text(itemData.toString()),
               );
             },
@@ -151,16 +169,16 @@ class Searchpage extends StatelessWidget {
           //print(Tag);
           use_API api = new use_API();
 
-          var detectword = await api.detect_word(textController.text);
+          var detectword = await api.detect_word(textControllerText.text);
           search s = new search();
           //  print(controller.listTagSearch);
           var true_word =
-              s.manage_word(controller.listTagSearch, textController.text);
+              s.manage_word(controller.listTagSearch, textControllerText.text);
           //print(true_word);
           DBHelper db = new DBHelper();
 
           var keyword_list = controller.listTagSearch;
-          var descriptions_search = textController.text;
+          var descriptions_search = textControllerText.text;
           print("/*************/");
           var data_search = await db.getPhoto();
           print(descriptions_search);

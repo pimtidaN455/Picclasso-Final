@@ -35,7 +35,10 @@ class _SelectImageCloudState extends State<SelectImageCloud> {
         automaticallyImplyLeading: true,
         actions: [
           TextButton(
-            child: Text('All Select'),
+            child: Text('All Select',
+                style: TextStyle(
+                  color: MyStyle().perpleColorSawang,
+                )),
             onPressed: () async {
               print("/////**/////**");
               setState(() {
@@ -153,8 +156,9 @@ class _SelectImageCloudState extends State<SelectImageCloud> {
 
   _getImage(url) => Image.network(
         url,
-        height: 500,
-        fit: BoxFit.fitHeight,
+        height: 190,
+        width: MediaQuery.of(context).size.width - 100.0,
+        fit: BoxFit.cover,
       );
 
   @override

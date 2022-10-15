@@ -57,7 +57,7 @@ class _Start_pageState extends State<Person_page1> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
-            height: size.height * 0.2 - 60,
+            height: size.height * 0.25 - 60,
             decoration: BoxDecoration(
               color: MyStyle().blackColor,
               borderRadius: BorderRadius.only(
@@ -73,7 +73,7 @@ class _Start_pageState extends State<Person_page1> {
                   height: 5,
                 ),
                 Text(
-                  "\n" + user.Firstname + ' ' + user.Lastname,
+                  user.Firstname + ' ' + user.Lastname,
                   style: TextStyle(
                     color: MyStyle().whiteColor,
                     fontSize: 20,
