@@ -25,8 +25,8 @@ class Searchpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     screen = MediaQuery.of(context).size.width;
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 0, 0, 0),
         title: Text(
@@ -40,119 +40,128 @@ class Searchpage extends StatelessWidget {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          "\n   Text you want to search. ",
-          style: TextStyle(
-            fontSize: 20,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: TextFormField(
-            controller: textControllerText,
-            onEditingComplete: () {
-              controller.listTagSearch.add(textControllerText.text);
-              textControllerText.clear();
-            },
-            autofocus: false,
-            style: DefaultTextStyle.of(context)
-                .style
-                .copyWith(fontStyle: FontStyle.italic),
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Text you want to search ',
-              //prefixIcon: Icon(Icons.tag),
-              enabledBorder:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-            ),
-          ),
-        ),
-        Text(
-          "\n   Keyword you want to search. ",
-          style: TextStyle(
-            fontSize: 20,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: TypeAheadField(
-            textFieldConfiguration: TextFieldConfiguration(
-              controller: textController,
-              onEditingComplete: () {
-                controller.listTagSearch.add(textController.text);
-                textController.clear();
-              },
-              autofocus: false,
-              style: DefaultTextStyle.of(context)
-                  .style
-                  .copyWith(fontStyle: FontStyle.italic),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Keywords you want to search ',
-                //prefixIcon: Icon(Icons.tag),
-                enabledBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+      body: SingleChildScrollView(
+        child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "\n   Text you want to search. ",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rajdhani',
+                ),
               ),
-            ),
-            suggestionsCallback: (String pattern) {
-              return this.AllTagAlbum.where(
-                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
-            },
-            onSuggestionSelected: (String suggestion) =>
-                controller.listTagSearch.add(suggestion),
-            itemBuilder: (BuildContext context, Object? itemData) {
-              return ListTile(
-                //leading: Icon(Icons.tag),
-                title: Text(itemData.toString()),
-              );
-            },
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          "   All the keywords you want to find.",
-          style: TextStyle(
-            fontSize: 20,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Obx(() => controller.listTagSearch.length == 0
-            ? Center(
-                child: Text('\n You do not have what you want to find.'),
-              )
-            : Wrap(
-                children: controller.listTagSearch
-                    .map((element) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: Chip(
-                            label: Text(element),
-                            deleteIcon: Icon(Icons.clear),
-                            onDeleted: () =>
-                                controller.listTagSearch.remove(element),
-                          ),
-                        ))
-                    .toList(),
-              )),
-        Wrap(
-            spacing: 8.0, // gap between adjacent chips
-            runSpacing: 4.0, // gap between lines
-            direction: Axis.horizontal,
-            children: [
-              buttonSearch(context),
-            ])
-      ]),
-    ));
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: TextFormField(
+                  controller: textControllerText,
+                  onEditingComplete: () {
+                    controller.listTagSearch.add(textControllerText.text);
+                    textControllerText.clear();
+                  },
+                  autofocus: false,
+                  style: DefaultTextStyle.of(context)
+                      .style
+                      .copyWith(fontStyle: FontStyle.italic),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Text you want to search ',
+                    //prefixIcon: Icon(Icons.tag),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  "  Keyword you want to search. ",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: MyStyle().blackColor,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Rajdhani',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(9),
+                child: TypeAheadField(
+                  textFieldConfiguration: TextFieldConfiguration(
+                    controller: textController,
+                    onEditingComplete: () {
+                      controller.listTagSearch.add(textController.text);
+                      textController.clear();
+                    },
+                    autofocus: false,
+                    style: DefaultTextStyle.of(context)
+                        .style
+                        .copyWith(fontStyle: FontStyle.italic),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Keywords you want to search ',
+                      //prefixIcon: Icon(Icons.tag),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25)),
+                    ),
+                  ),
+                  suggestionsCallback: (String pattern) {
+                    return this.AllTagAlbum.where(
+                        (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+                  },
+                  onSuggestionSelected: (String suggestion) =>
+                      controller.listTagSearch.add(suggestion),
+                  itemBuilder: (BuildContext context, Object? itemData) {
+                    return ListTile(
+                      //leading: Icon(Icons.tag),
+                      title: Text(itemData.toString()),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "   All the keywords you want to find.",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rajdhani',
+                ),
+              ),
+              Obx(() => controller.listTagSearch.length == 0
+                  ? Center(
+                      child: Text('\n You do not have what you want to find.'),
+                    )
+                  : Wrap(
+                      children: controller.listTagSearch
+                          .map((element) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: Chip(
+                                  label: Text(element),
+                                  deleteIcon: Icon(Icons.clear),
+                                  onDeleted: () =>
+                                      controller.listTagSearch.remove(element),
+                                ),
+                              ))
+                          .toList(),
+                    )),
+              Wrap(
+                  spacing: 8.0, // gap between adjacent chips
+                  runSpacing: 4.0, // gap between lines
+                  direction: Axis.horizontal,
+                  children: [
+                    buttonSearch(context),
+                  ])
+            ])),
+      ),
+    );
   }
 
   Container buttonSearch(var context) {

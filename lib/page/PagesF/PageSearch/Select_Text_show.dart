@@ -1,25 +1,11 @@
 import 'dart:io';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:project_photo_learn/Object/imagecloud.dart';
-import 'package:project_photo_learn/Sqfl/DBHelper.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/Edit_keyword_des.dart';
-//import 'package:project_photo_learn/page/PagesF/PageClound/FileCloudPage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/manage_album_Home.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/renameAlbum.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/selectImage_Home.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/setting_album_client.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/setting_album_server.dart';
 import 'package:project_photo_learn/page/PagesF/PageSearch/ShowImage_for_search_.dart';
-
 import 'package:project_photo_learn/page/PagesF/PageSearch/tag_state.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
-
 import '../../Backend/User_data.dart';
 
 //enum Menu { itemZero, itemOne, itemTwo, itemThree }
@@ -227,12 +213,9 @@ class select_gotoshow_key extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                "--------------------------" +
-                    "\n" +
-                    "The image you searched for was not found." +
-                    "\n" "--------------------------",
+                "The image you searched for was not found.",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: MyStyle().deleteColor,
                   fontWeight: FontWeight.bold,
                   //fontStyle: FontStyle.normal,

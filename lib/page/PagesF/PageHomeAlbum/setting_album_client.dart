@@ -75,9 +75,9 @@ class setting_album_page extends State<setting_Album_Client> {
       ////////////////////////////////////////////
       backgroundColor: MyStyle().whiteColor,
       title: Text(
-        "Album details " + this.title,
+        "Album details : " + this.title,
         style: TextStyle(
-          fontSize: 30,
+          fontSize: 23,
           color: MyStyle().blackColor,
           fontWeight: FontWeight.bold,
           fontFamily: 'Rajdhani',
@@ -90,8 +90,10 @@ class setting_album_page extends State<setting_Album_Client> {
   SingleChildScrollView setting_P() {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
+        child: Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(15, 0, 10, 0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 20,
@@ -109,18 +111,6 @@ class setting_album_page extends State<setting_Album_Client> {
             height: 10,
           ),
           Text(
-            //คีย์เวิร์ดทั้งหมดของอัลบั้มนั้น
-            "   Keyword : " + keyword,
-            style: TextStyle(
-              color: MyStyle().blackColor,
-              fontSize: 20,
-              fontFamily: 'Poppins',
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
             //เดสทั้งหมดของอลับั้มนั้น
             "   Description : " + description,
             style: TextStyle(
@@ -129,6 +119,30 @@ class setting_album_page extends State<setting_Album_Client> {
               fontFamily: 'Poppins',
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            //เดสทั้งหมดของอลับั้มนั้น
+            "   Keyword : ",
+            style: TextStyle(
+              color: MyStyle().blackColor,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15, 10, 10, 0),
+            child: Text(
+              //คีย์เวิร์ดทั้งหมดของอัลบั้มนั้น
+              keyword,
+              style: TextStyle(
+                color: MyStyle().blackColor,
+                fontSize: 20,
+                fontFamily: 'Poppins',
+              ),
+            ),
+          )
         ],
         /*Container(
             padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
@@ -249,6 +263,6 @@ class setting_album_page extends State<setting_Album_Client> {
 
                 */
       ),
-    );
+    ));
   }
 }
