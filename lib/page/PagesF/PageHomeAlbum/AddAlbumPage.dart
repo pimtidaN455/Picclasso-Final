@@ -13,7 +13,16 @@ import 'package:project_photo_learn/page/PagesF/first.dart';
 
 import '../../Backend/User_data.dart';
 
-var suggestTag2 = ["Pizza", "Pasta", "Spagetti"];
+var all = [
+  "คณิตศาสตร์",
+  "สังคม",
+  "ภาษาไทย",
+  "สุขศึกษา",
+  "บันนทึกการอ่าน",
+  "ภาษาอังกฤษ",
+  "คอมพิวเตอร์",
+  "ประวัติศาสตร์"
+];
 
 class Add_Album_Page extends StatefulWidget {
   const Add_Album_Page({Key? key}) : super(key: key);
@@ -23,7 +32,7 @@ class Add_Album_Page extends StatefulWidget {
 
 class Add_Album_PageState extends State<Add_Album_Page> {
   late double screen;
-  final controller = Get.put(TagStateController());
+  final controller = new TagStateController();
   TextEditingController Add_Name_SubJ = TextEditingController();
   TextEditingController Add_des = TextEditingController();
   TextEditingController Add_Keyword_SubJ = TextEditingController();
@@ -92,138 +101,142 @@ class Add_Album_PageState extends State<Add_Album_Page> {
         backgroundColor: MyStyle().whiteColor,
       ),
       body: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          "\n   Name of subject",
-          style: TextStyle(
-            fontSize: 25,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-            child: Form(
-              key: _fromKey,
-              child: Column(
-                //mainAxisSize: MainAxisSize.min,
-                children: [
-                  AddNameSubJ(),
-                ],
-              ),
-            )),
-        SizedBox(
-          height: 5,
-        ),
-        Text(
-          '   Add Desription',
-          style: TextStyle(
-            fontSize: 25,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            //fontStyle: FontStyle.normal,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-            child: Form(
-              key: _fromKey2,
-              child: Column(
-                //mainAxisSize: MainAxisSize.min,
-                children: [
-                  AddDesription(),
-                ],
-              ),
-            )),
-        Text(
-          '   Add keyword',
-          style: TextStyle(
-            fontSize: 25,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            //fontStyle: FontStyle.normal,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: TypeAheadField(
-            textFieldConfiguration: TextFieldConfiguration(
-              controller: Add_Keyword_SubJ,
-              onEditingComplete: () {
-                controller.listTagAdd.add(Add_Keyword_SubJ.text);
-                Add_Keyword_SubJ.clear();
-              },
-              autofocus: false,
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Keyword',
-                //contentPadding: EdgeInsets.symmetric(vertical: 2),
-                // prefixIcon: Icon(Icons.tag),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    if (Add_Keyword_SubJ.text != "") {
-                      controller.listTagAdd.add(Add_Keyword_SubJ.text);
-                    }
-                    Add_Keyword_SubJ.clear();
-                  },
-                  icon: const Icon(Icons.add),
+        child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "\n   Name of subject",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rajdhani',
                 ),
-                enabledBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                focusedBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
-            ),
-            suggestionsCallback: (String pattern) {
-              return suggestTag2.where(
-                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
-            },
-            onSuggestionSelected: (String suggestion) =>
-                controller.listTagAdd.add(suggestion),
-            itemBuilder: (BuildContext context, Object? itemData) {
-              return ListTile(
-                leading: Icon(Icons.tag),
-                title: Text(itemData.toString()),
-              );
-            },
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          "    You want to add ",
-          style: TextStyle(
-            fontSize: 20,
-            color: MyStyle().blackColor,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Rajdhani',
-          ),
-        ),
-        Obx(() => controller.listTagAdd.length == 0
-            ? Center(
-                child: Text('\n No Keyword'),
-              )
-            : Wrap(
-                children: controller.listTagAdd
-                    .map((element) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: Chip(
-                            label: Text(element),
-                            deleteIcon: Icon(Icons.clear),
-                            onDeleted: () =>
-                                controller.listTagAdd.remove(element),
-                          ),
-                        ))
-                    .toList(),
-              )),
-        buttonaddbum(),
-      ])),
+              Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                  child: Form(
+                    key: _fromKey,
+                    child: Column(
+                      //mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AddNameSubJ(),
+                      ],
+                    ),
+                  )),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                '   Add Desription',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  //fontStyle: FontStyle.normal,
+                  fontFamily: 'Rajdhani',
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                  child: Form(
+                    key: _fromKey2,
+                    child: Column(
+                      //mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AddDesription(),
+                      ],
+                    ),
+                  )),
+              Text(
+                '   Add keyword',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  //fontStyle: FontStyle.normal,
+                  fontFamily: 'Rajdhani',
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: TypeAheadField(
+                  textFieldConfiguration: TextFieldConfiguration(
+                    controller: Add_Keyword_SubJ,
+                    onEditingComplete: () {
+                      controller.listTagAdd.add(Add_Keyword_SubJ.text);
+                      Add_Keyword_SubJ.clear();
+                    },
+                    autofocus: false,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Keyword',
+                      //contentPadding: EdgeInsets.symmetric(vertical: 2),
+                      // prefixIcon: Icon(Icons.tag),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          if (Add_Keyword_SubJ.text != "") {
+                            controller.listTagAdd.add(Add_Keyword_SubJ.text);
+                          }
+                          Add_Keyword_SubJ.clear();
+                        },
+                        icon: const Icon(Icons.add),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                  suggestionsCallback: (String pattern) {
+                    return all.where(
+                        (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+                  },
+                  onSuggestionSelected: (String suggestion) =>
+                      controller.listTagAdd.add(suggestion),
+                  itemBuilder: (BuildContext context, Object? itemData) {
+                    return ListTile(
+                      leading: Icon(Icons.tag),
+                      title: Text(itemData.toString()),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "    You want to add ",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rajdhani',
+                ),
+              ),
+              Obx(() => controller.listTagAdd.length == 0
+                  ? Center(
+                      child: Text('\n No Keyword'),
+                    )
+                  : Wrap(
+                      children: controller.listTagAdd
+                          .map((element) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: Chip(
+                                  label: Text(element),
+                                  deleteIcon: Icon(Icons.clear),
+                                  onDeleted: () =>
+                                      controller.listTagAdd.remove(element),
+                                ),
+                              ))
+                          .toList(),
+                    )),
+              buttonaddbum(),
+            ])),
+      ),
     );
   }
 

@@ -97,16 +97,16 @@ class _HowtoWidgetState extends State<HowToUse2> {
             onTap: () => FocusScope.of(context).unfocus(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 5),
                   child: Row(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 9, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +121,7 @@ class _HowtoWidgetState extends State<HowToUse2> {
                             ),
                             Container(
                               width: 2,
-                              height: 130,
+                              height: 110,
                               decoration: BoxDecoration(
                                 color: MyStyle().blackColor,
                               ),
@@ -145,12 +145,12 @@ class _HowtoWidgetState extends State<HowToUse2> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -198,13 +198,13 @@ class _HowtoWidgetState extends State<HowToUse2> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 5),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 9, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -243,12 +243,12 @@ class _HowtoWidgetState extends State<HowToUse2> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -296,13 +296,13 @@ class _HowtoWidgetState extends State<HowToUse2> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 5),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 9, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -341,12 +341,12 @@ class _HowtoWidgetState extends State<HowToUse2> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -395,13 +395,13 @@ class _HowtoWidgetState extends State<HowToUse2> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 5),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 9, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -440,12 +440,12 @@ class _HowtoWidgetState extends State<HowToUse2> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
