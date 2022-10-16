@@ -141,41 +141,6 @@ class Allimages extends State<ShowImage> {
                 print(showDevice);
                 print(
                     "///////////////////////////////////////////////////////");
-                /*DBHelper db = DBHelper();
-                await db.deletedata_intable();
-                user_file user = await new user_file();
-                await user.getdata_user_file();
-                var user0 = await user;
-                var ListImgCloud0;
-                var listimageshow;
-
-                //
-
-                if (await user.Login) {
-                  list_album la = await new list_album();
-                  await la.getimagefrom_api();
-                  print(
-                      'LAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLa');
-                  listimageshow = await la.listimageshow;
-
-                  listimagecloud listimgC = await new listimagecloud();
-                  ListImgCloud = await listimgC.getimagefrom_api();
-                  print('\\\\\\\\\\\\\\\\\List\\\\\\\\\\\\\\\\');
-                  if (ListImgCloud != null && ListImgCloud.length != 0) {
-                    for (int i = 0; i < ListImgCloud.length; i++) {
-                      print(await ListImgCloud[i].geturlimage());
-                    }
-                  }
-                }
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FirstState(
-                            page: 0,
-                            user: user,
-                            listimageshow: listimageshow,
-                            ListImgCloud: ListImgCloud)));
-             */
               },
             ),
             IconButton(
@@ -351,7 +316,6 @@ class Allimages extends State<ShowImage> {
                           description = dataalbum[0]['DESCRIPTIONALBUM'];
                         }
                         if (dataalbum[0]['KEYWORDALBUM'].length != 0) {
-                          //keyword = dataalbum[0]['KEYWORDALBUM'];
                           for (int i = 0;
                               i < dataalbum[0]['KEYWORDALBUM'].length;
                               ++i) {
@@ -545,17 +509,6 @@ class _GridItem_Cloud extends StatelessWidget {
                             Icons.cloud_circle_rounded,
                             color: MyStyle().whiteColor,
                           ),
-
-                          /*Text(
-                            "In cloud",
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 10),
-                          ),*/
                         ),
                       ]),
                 ),

@@ -137,7 +137,7 @@ class _MyAppState5 extends State<FilePic> {
           appBar: new AppBar(
             backgroundColor: Color.fromARGB(255, 255, 255, 255),
             title: Text(
-              "Clound",
+              "Cloud",
               style: TextStyle(
                 fontSize: 30,
                 color: Color.fromARGB(255, 0, 0, 0),
@@ -270,8 +270,7 @@ class _MyAppState5 extends State<FilePic> {
                     await showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
-                        title: Text(
-                            'Cloud has no pictures for you to choose from.'),
+                        title: Text('Cloud has no pictures for you to choose.'),
                       ),
                     );
                   }

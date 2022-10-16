@@ -120,7 +120,7 @@ class SlideImageDevice extends State<SlideImageD2>
           IconButton(
             icon: Icon(
               Icons.drive_file_move_outline,
-              color: MyStyle().blackColor,
+              color: MyStyle().faColor,
             ),
             onPressed: () async {
               ImageData img =

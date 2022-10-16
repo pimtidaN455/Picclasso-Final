@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:crypto/crypto.dart';
 import 'package:convert/convert.dart';
 import 'dart:convert';
 import 'package:path_provider/path_provider.dart';
@@ -30,47 +28,25 @@ class user_file {
   var Firstname;
   var Lastname;
   var IDuser;
-
   var Id_device;
 
-  // var filepath_W = File('./lib/page/Backend/datafile/client_data.json');
-
-  user_file() {
-    // print("LLLLLLLLLLLLLLLololo");
-
-    // print("IIIIIIIIIIIIIIIII");
-  }
+  user_file() {}
 
   getdata_user_file() async {
     var data_json = await getApplicationSupportDirectory()
         .then((Directory directory) async {
-      //  print("dododo");
       Directory dir = directory;
-      //  print("LLLLLLL");
+      print("dir");
       print(dir);
       File filepath_W = new File(dir.path + "/client_data.json");
       bool fileExists = filepath_W.existsSync();
-      //  print("LLLLLLL");
       if (fileExists) {
-        //    print("ggg");
-        // read file
-
+        print("มี file อยู่แล้ว ใช้งานแอพอยู่แล้ว");
         print(filepath_W);
-        var base64String = filepath_W.readAsStringSync();
-        print(base64String);
-        //  print("JJJJJJ");
-        //print(data_json['Login']);
 
-        print("Hashhhhhhhhhhhhhhhhhhhhhhhh");
-        /* String h = data_json.toString();
-        print(h);
-        var bytes = await utf8.encode(await h);
-        print(bytes);
-        final StringHex = hex.encode(bytes);
-        print(StringHex);
-        final base64String = base64.encode(utf8.encode(StringHex));
-        print(base64String);*/
-        print("--------------------------");
+        var base64String = filepath_W.readAsStringSync();
+        print("-------------แปลงไฟล์-------------");
+        print(base64String);
         var decodebase64 = base64.decode(base64String);
         print(decodebase64);
         var baseutf8 = utf8.decode(decodebase64);
@@ -81,11 +57,7 @@ class user_file {
         var jsonh = jsonEncode(hexutf8);
         var data_json = jsonDecode(jsonDecode(jsonh));
         print(data_json.runtimeType);
-
-        print("Hashhhhhhhhhhhhhhhhhhhhhhhh");
-        print("KKKKKKKKKKKKKKKKKKKKKKK");
-        print("JJJJJJ");
-        // print(data_json["Login"]);
+        print("---------------------------------");
         if (data_json['Login'] != false) {
           Email = data_json['Email'];
           Firstname = data_json['Firstname'];
@@ -94,17 +66,13 @@ class user_file {
           Albums_Create = data_json['Albums_Create'];
         }
         Login = data_json['Login'];
-
         Id_device = data_json['Use_Device'];
-
-        print("YYYYYYYYYYYYYYYYYY");
+        print("Account ที่ทำการ Login");
         print(Email);
         print(Login);
-        // print(IDuser);
         return data_json;
       } else {
-        print("HHHH");
-        //  print("ddddddddddddddddddddd");
+        print("ใช้งานแอพครั้งแรก ไม่มีไฟล์");
         // write file
         var data_json = {'Login': false, 'Use_Device': await Id_device};
         var user = jsonEncode(data_json);
@@ -122,64 +90,15 @@ class user_file {
         Login = data_json['Login'];
       }
     });
-    // print(await "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-    //print(await "fdffdfdf");
-
-    // print("--------------------getdata_user_file*------------------");
-
-    // print(
-    // "--------------------getdata_user_filenhbhhhhhhhhhhhhhhhhhhhh------------------");
-    //print(data_json['Login']);
-
-/*
-    Email = data_json['Email'];
-    Firstname = data_json['Firstname'];
-    Lastname = data_json['Lastname'];
-    IDuser = data_json['IDUser'];
-    Albums_Create = data_json['Albums_Create'];
-    Login = data_json['Login'];
-    Password = data_json['Password'];4*/
-    /*
-    print(Email);
-    print(Login);
-    print(IDuser);
-    return data_json;*/
-    /*
-    print("GGGGasdasdasddsadasd");
-    var file =
-        File('./ProjectPhotoL-main/lib/Backend/datafile/client_data.json');
-    // var G = (await file.readAsString());
-
-    var data_json = jsonDecode(file.readAsStringSync());
-    print(data_json.runtimeType);
-    print(data_json);
-    print("HHH");
-
-    Email = data_json['Email'];
-    Firstname = data_json['Firstname'];
-    Lastname = data_json['Lastname'];
-    IDuser = data_json['IDuser'];
-    Albums_Create = data_json['Albums_Create'];
-    Login = data_json['Login'];
-
-    // print(user.runtimeType);
-    //Map<String, dynamic> userMap = jsonDecode(G);
-
-    // print(userMap['name']);*/
     return data_json;
   }
 
   Future<void> usedata() async {
-    //print("--------------------getdata_user_file25------------------");
     print(getApplicationDocumentsDirectory());
-    // print("--------------------getdata_user_file2------------------");
-    //  Email = "HHHH";
   }
 
   write_user_file(map_data) {
     var user = jsonEncode(map_data);
-
     getApplicationSupportDirectory().then((Directory directory) {
       Directory dir = directory;
       File filepath_W = new File(dir.path + "/client_data.json");
@@ -189,21 +108,10 @@ class user_file {
       print(bytes);
       final StringHex = hex.encode(bytes);
       print(StringHex);
-
       final base64String = base64.encode(utf8.encode(StringHex));
       print(base64String);
-      //แปลงไฟล์
       filepath_W.writeAsString(base64String);
-      //แปลงไฟล์กลับ
     });
-/*
-    var user = jsonEncode(map_data);
-    var file = filepath_W.writeAsStringSync(user);
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    print(map_data);
-    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    File('./ProjectPhotoL-main/lib/Backend/datafile/client_data.json')
-        .writeAsString(user);*/
     return "Write_Success";
   }
 }

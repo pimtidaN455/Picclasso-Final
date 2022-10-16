@@ -29,12 +29,31 @@ class AlertDialogs_move_img {
     print("////");
     print(dataalbum);
     print("////");
+    print("เช็คคคคคค");
+    var araikordai = "yehwow (Usercreate)";
+    print(araikordai.indexOf("(Ucreate)"));
+    print(araikordai.substring(
+        0, (araikordai.length - "(Usercreate)".length) - 1));
     for (int i = 0; i < dataalbum.length; ++i) {
-      list.add(dataalbum[i]['NAMEALBUM']);
-      /*  " (" +
-          dataalbum[i]['IDENTITYALBUM'] +
-          ") ");*/
+      if (dataalbum[i]['IDENTITYALBUM'] == "Usercreate") {
+        list.add(dataalbum[i]['NAMEALBUM'] + " (Usercreate)");
+      }
     }
+    var listNameBumServer = [
+      'Animals (ServerCreate)',
+      'Art (ServerCreate)',
+      'Cartoon (ServerCreate)',
+      'Document+Education (ServerCreate)',
+      'Foods (ServerCreate)',
+      'Meme (ServerCreate)',
+      'Object (ServerCreate)',
+      'Person (ServerCreate)',
+      'Place (ServerCreate)',
+      'Plant (ServerCreate)',
+      'Raw_Material (ServerCreate)',
+      'Vehicle (ServerCreate)'
+    ];
+    list.addAll(listNameBumServer);
     var image = imageListD;
     print("////");
     print(list);
@@ -54,13 +73,12 @@ class AlertDialogs_move_img {
                   value: dropdownValue,
                   icon: const Icon(Icons.arrow_drop_down),
                   elevation: 16,
-                  style: const TextStyle(color: Colors.deepPurple),
+                  style: const TextStyle(color: Colors.black),
                   underline: Container(
                     height: 2,
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.black,
                   ),
                   onChanged: (String? value) {
-                    // This is called when the user selects an item.
                     setState(() {
                       dropdownValue = value!;
                     });
@@ -78,12 +96,21 @@ class AlertDialogs_move_img {
                   child: new Text(
                     "Confirm",
                     style: TextStyle(
-                      color: MyStyle().perpleColorSawang,
+                      color: MyStyle().perpleColor,
                     ),
                   ),
                   onPressed: () async {
                     manageimage_Home manage = manageimage_Home();
-                    await manage.move(image, nameAlbum, dropdownValue);
+                    var new_nameAlbum = "";
+                    if (dropdownValue.indexOf("(ServerCreate)") >= 0) {
+                      new_nameAlbum = dropdownValue.substring(0,
+                          (dropdownValue.length - "(ServerCreate)".length) - 1);
+                    }
+                    if (dropdownValue.indexOf("(Usercreate)") >= 0) {
+                      new_nameAlbum = dropdownValue.substring(0,
+                          (dropdownValue.length - "(Usercreate)".length) - 1);
+                    }
+                    await manage.move(image, nameAlbum, new_nameAlbum);
                     await showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
@@ -157,60 +184,6 @@ class AlertDialogs_move_img {
                     print(showDevice);
                     print(
                         "///////////////////////////////////////////////////////");
-                    /* List<ImageData> imageListD = [];
-                    List<ImageData> imageListC = [];
-
-                    DBHelper db = DBHelper();
-                    await db.deletedata_intable();
-                    list_album listc = new list_album();
-                    await listc.getimagefrom_api();
-                    list_album listA = new list_album();
-                    var imagelist = [];
-                    var showDevice = await listA.getImag_inAlbum(title);
-                    print(showDevice);
-                    //imageList = ImageData.getImage();
-                    for (int i = 0; i < showDevice["device"].length; i++) {
-                      ImageData idt = ImageData(
-                          showDevice["device"][i]['img'] as String,
-                          false,
-                          i,
-                          showDevice["device"][i]['nameimg']);
-                      imagelist.add(idt);
-                    }
-                    //var lenListD = imageListD.length;
-                    print(imagelist.length);
-                    print("******00*****");
-                    for (int i = 0; i < showDevice["cloud"].length; i++) {
-                      ImageData idtc = ImageData(
-                          showDevice["cloud"][i]['img'] as String,
-                          false,
-                          i,
-                          showDevice["cloud"][i]['nameimg']);
-                      imagelist.add(idtc);
-                    }
-                    var lenListC = showDevice["cloud"].length;
-                    var lenListD = showDevice["device"].length;
-                    String statusitem = "Don't have";
-                    if (lenListC != 0 && lenListD != 0) {
-                      statusitem = "Have 2";
-                    } else if (lenListC != 0 && lenListD == 0) {
-                      statusitem = "Have 1 Cloud";
-                    } else if (lenListC == 0 && lenListD != 0) {
-                      statusitem = "Have 1 Device";
-                    }
-                    print(imagelist.length);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SelectImageHomePage(
-                                  imageListD: imagelist,
-                                  lenListC: lenListC,
-                                  iconselect: "move",
-                                  statusitem: statusitem,
-                                  title: nameAlbum,
-                                  /*iconselect: "delete"*/
-                                  /*iconselect: "delete"*/
-                                )));*/
                   },
                 ),
                 new FlatButton(
