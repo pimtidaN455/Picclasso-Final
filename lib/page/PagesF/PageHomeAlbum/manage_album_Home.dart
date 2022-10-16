@@ -173,15 +173,10 @@ class AlertDialogs_manage_album {
                     ),
                   );
 
-                  page =
-                      await /*  setting_Album_Client(
-                      title: datamanage_album["namealbum"],
-                      description: description,
-                      keyword: keyword)*/
-                      ShowImage(
-                          name: datamanage_album["namealbum"],
-                          listimageshow: showDevice,
-                          statusAlbum: "Usercreate");
+                  page = await ShowImage(
+                      name: datamanage_album["namealbum"],
+                      listimageshow: showDevice,
+                      statusAlbum: "Usercreate");
                 }
 
                 Navigator.push(

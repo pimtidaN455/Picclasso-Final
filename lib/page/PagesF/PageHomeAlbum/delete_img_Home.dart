@@ -115,42 +115,6 @@ class AlertDialogs_Delete_img {
                 print(showDevice);
                 print(
                     "///////////////////////////////////////////////////////");
-
-///////*//*
-////*
-                ///*
-                /*  DBHelper db = DBHelper();
-                await db.deletedata_intable();
-                user_file user = await new user_file();
-                await user.getdata_user_file();
-                var user0 = await user;
-                var ListImgCloud;
-                var listimageshow;*/
-
-                //
-/*
-                if (await user.Login) {
-                  list_album la = await new list_album();
-                  await la.getimagefrom_api();
-                  print(
-                      'LAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLa');
-                  listimageshow = await la.listimageshow;
-
-                  listimagecloud listimgC = await new listimagecloud();
-                  ListImgCloud = await listimgC.getimagefrom_api();
-                  print('\\\\\\\\\\\\\\\\\List\\\\\\\\\\\\\\\\');
-                  /*for (int i = 0; i < ListImgCloud.length; i++) {
-                      print(await ListImgCloud[i].geturlimage());
-                    }*/
-                }
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FirstState(
-                            page: 2,
-                            user: user,
-                            listimageshow: listimageshow,
-                            ListImgCloud: ListImgCloud)));*/
               },
               child: Text(
                 'Confirm',

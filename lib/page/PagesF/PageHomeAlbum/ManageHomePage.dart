@@ -11,7 +11,6 @@ class Manage_Homepage {
   selectImages() async {
     final result = await FilePicker.platform
         .pickFiles(allowMultiple: true, type: FileType.image);
-    //allowedExtensions: ['jpg', 'jpeg']);
 
     if (result == null) {
       return null;
