@@ -117,15 +117,17 @@ class Howto4 extends State<HowToUse4> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'เข้าไปที่หน้า person แล้วกดเมนูตั้งค่า',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'เข้าไปที่หน้า person แล้วกดเมนูตั้งค่า',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -155,15 +157,17 @@ class Howto4 extends State<HowToUse4> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'จะมีตัวเลือกให้คุณเลือกระหว่าง \n เปลี่ยนชื่อ หรือ เปลี่ยนรหัสผ่าน',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'จะมีตัวเลือกให้คุณเลือกระหว่าง เปลี่ยนชื่อ หรือ เปลี่ยนรหัสผ่าน',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -193,15 +197,17 @@ class Howto4 extends State<HowToUse4> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'ใส่ชื่อใหม่แล้วกดยืนยันได้เลย',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'ใส่ชื่อใหม่แล้วกดยืนยันได้เลย',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -231,15 +237,17 @@ class Howto4 extends State<HowToUse4> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'กรอกอีเมลบัญชีของคุณ แล้วเช็คเมลของคุณ\nทางแอปพลิเคชันจะส่งลิ้งก์ให้คุณเปลี่ยนรหัสผ่าน',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'กรอกอีเมลบัญชีของคุณ แล้วเช็คเมลของคุณทางแอปพลิเคชันจะส่งลิ้งก์ให้คุณเปลี่ยนรหัสผ่าน',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(

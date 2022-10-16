@@ -117,15 +117,17 @@ class Howto2 extends State<HowToUse22> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'ถ้าคุณต้องการค้นหารูปภาพ ทำได้ง่ายๆโดย \nในช่องข้างบนให้คุณพิมพ์ประโยคที่คุณต้องการค้นหา \nส่วนช่องข้างล่างให้เลือกคีย์เวิร์ดที่คุณต้องการค้นหา\nเมื่อใส่ครบถ้วนตามที่ต้องการแล้วกดค้นหาได้เลย',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'ถ้าคุณต้องการค้นหารูปภาพ ทำได้ง่ายๆโดย ในช่องข้างบนให้คุณพิมพ์ประโยคที่คุณต้องการค้นหา ส่วนช่องข้างล่างให้เลือกคีย์เวิร์ดที่คุณต้องการค้นหาเมื่อใส่ครบถ้วนตามที่ต้องการแล้วกดค้นหาได้เลย',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -143,7 +145,7 @@ class Howto2 extends State<HowToUse22> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.asset(
-                                        'images/Search1.png',
+                                        'images/konha.png',
                                         width: 500,
                                         height: 500,
                                         //fit: BoxFit.cover,
@@ -155,15 +157,17 @@ class Howto2 extends State<HowToUse22> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'จะได้หน้าผลลัพธ์ของการค้นหา ประกอบไปด้วย\nรูปที่ได้จากประโยค และ รูปที่ได้จากคีย์เวิร์ด',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'จะได้หน้าผลลัพธ์ของการค้นหา ประกอบไปด้วยรูปที่ได้จากประโยค และ รูปที่ได้จากคีย์เวิร์ด',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(

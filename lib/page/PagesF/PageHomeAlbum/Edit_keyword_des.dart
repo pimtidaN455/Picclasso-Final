@@ -39,9 +39,6 @@ class Edit_keyword_des_albumState extends State<Edit_keyword_des_album> {
   TextEditingController ConfirmEdit_KeywordJa = TextEditingController();
   TextEditingController Edit_des = TextEditingController();
   TextEditingController Edit_Keyword = TextEditingController();
-
-  //สร้างตัวแปร fromKey
-//  final _EdKeyword = GlobalKey<FormState>();
   final _EdDes = GlobalKey<FormState>();
 
   @override
@@ -57,10 +54,6 @@ class Edit_keyword_des_albumState extends State<Edit_keyword_des_album> {
         controller.listTagBum.add(keyword[i]);
       }
     }
-
-    //controller.listTagBum.add(keyword);
-    //Edit_Keyword = TextEditingController(text: keyword);
-
     screen = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -92,32 +85,10 @@ class Edit_keyword_des_albumState extends State<Edit_keyword_des_album> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          //ShowImage(name: title, selectbum: selectbum)
-                          ShowImage(
-                              name: title,
-                              listimageshow: showDevice,
-                              statusAlbum: "Usercreate")));
-
-              /*
-              var title = this.name;
-              DBHelper db = DBHelper();
-              await db.deletedata_intable();
-              list_album listc = new list_album();
-              await listc.getimagefrom_api();
-              list_album listA = new list_album();
-
-              var showDevice = await listA.getImag_inAlbum(title);
-              print(showDevice);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          //ShowImage(name: title, selectbum: selectbum)
-                          ShowImage(
-                              name: title,
-                              listimageshow: showDevice,
-                              statusAlbum: "Usercreate")));*/
+                      builder: (context) => ShowImage(
+                          name: title,
+                          listimageshow: showDevice,
+                          statusAlbum: "Usercreate")));
             }),
         backgroundColor: MyStyle().whiteColor,
       ),
@@ -160,50 +131,32 @@ class Edit_keyword_des_albumState extends State<Edit_keyword_des_album> {
         ),
         Padding(
           padding: const EdgeInsets.all(8),
-          child: TypeAheadField(
-            textFieldConfiguration: TextFieldConfiguration(
-              controller: Edit_Keyword,
-              onEditingComplete: () {
-                if (Edit_Keyword.text != "")
-                  //controller.listTagBum.add(keyword);
-                  controller.listTagBum.add(Edit_Keyword.text);
-                Edit_Keyword.clear();
-              },
-              autofocus: false,
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "",
-                //contentPadding: EdgeInsets.symmetric(vertical: 2),
-                prefixIcon: Icon(Icons.tag),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    if (Edit_Keyword.text != "") {
-                      //controller.listTagBum.add(keyword);
-                      controller.listTagBum.add(Edit_Keyword.text);
-                    }
-                    Edit_Keyword.clear();
-                  },
-                  icon: const Icon(Icons.add),
-                ),
-                enabledBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                focusedBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          child: TextFormField(
+            controller: Edit_Keyword,
+            onEditingComplete: () {
+              if (Edit_Keyword.text != "")
+                controller.listTagBum.add(Edit_Keyword.text);
+              Edit_Keyword.clear();
+            },
+            autofocus: false,
+            style: TextStyle(fontSize: 20),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "",
+              //prefixIcon: Icon(Icons.tag),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  if (Edit_Keyword.text != "") {
+                    //controller.listTagBum.add(keyword);
+                    controller.listTagBum.add(Edit_Keyword.text);
+                  }
+                  Edit_Keyword.clear();
+                },
+                icon: const Icon(Icons.add),
               ),
+              enabledBorder:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
             ),
-            suggestionsCallback: (String pattern) {
-              return suggestTag2.where(
-                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
-            },
-            onSuggestionSelected: (String suggestion) =>
-                controller.listTagBum.add(suggestion),
-            itemBuilder: (BuildContext context, Object? itemData) {
-              return ListTile(
-                leading: Icon(Icons.tag),
-                title: Text(itemData.toString()),
-              );
-            },
           ),
         ),
         SizedBox(

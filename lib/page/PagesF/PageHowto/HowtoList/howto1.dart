@@ -156,15 +156,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '\n แล้วใส่รายละเอียดอัลบั้มประกอบไปด้วย \nชื่ออัลบั้ม คำอธิบายรายวิชา และ คีย์เวิร์ด',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'แล้วใส่รายละเอียดอัลบั้มประกอบไปด้วย ชื่ออัลบั้ม\nคำอธิบายรายวิชา และ คีย์เวิร์ด',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -194,15 +196,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '\n เมื่อสร้างอัลบั้มสำเร็จแล้ว อัลบั้มที่สร้างไว้ก็จะ\nปรากฎอยู่บนหน้าอัลบั้ม\n\nในกรณีที่รูปภาพยังไม่มีในอัลบั้มวิชานั้นจะปรากฎ\nอัลบั้มเป็นรูป ไอคอนรูปภาพโดนขีดค่า\n',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      '\n เมื่อสร้างอัลบั้มสำเร็จแล้ว อัลบั้มที่สร้างไว้ก็จะปรากฎอยู่บนหน้าอัลบั้ม ในกรณีที่รูปภาพยังไม่มีในอัลบั้มวิชานั้นจะปรากฎอัลบั้มเป็นรูป ไอคอนรูปภาพโดนขีดค่า',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -232,15 +236,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '\nในการแก้ไขอัลบั้มนั้น ผู้ใช้สามารถทำได้โดย \nกดไปที่อัลบั้มที่ต้องการแก้ไข เลือกจุด 3 จุด\nด้านบนขวามือจะมีเมนูให้เลือก 4 ตัวเลือก \nประกอบไปด้วย \n - ดูข้อมูลอัลบั้ม \n - เปลี่ยนชื่ออัลบั้ม \n - แก้ไขคีย์เวิร์ด และ คำอธิบายวิชา \n - ลบอัลบั้ม',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      '\nในการแก้ไขอัลบั้มนั้น ผู้ใช้สามารถทำได้โดย กดไปที่อัลบั้มที่ต้องการแก้ไข เลือกจุด 3 จุดด้านบนขวามือจะมีเมนูให้เลือก 4 ตัวเลือก ประกอบไปด้วย \n - ดูข้อมูลอัลบั้ม \n - เปลี่ยนชื่ออัลบั้ม \n - แก้ไขคีย์เวิร์ด และ คำอธิบายวิชา \n - ลบอัลบั้ม',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -270,15 +276,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'การเพิ่มรูปภาพเพื่อให้แอปพลิเคชันทำการคัดแยก\nเข้าอัลบั้มวิชาต่างๆทำได้โดยกดปุ่มเพิ่มรูปทาง\nด้านบนขวาอันที่ 2 แล้วจะเข้ามาในหน้าเลือกรูป',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'การเพิ่มรูปภาพเพื่อให้แอปพลิเคชันทำการคัดแยกเข้าอัลบั้มวิชาต่างๆทำได้โดยกดปุ่มเพิ่มรูปทางด้านบนขวาอันที่ 2 แล้วจะเข้ามาในหน้าเลือกรูป',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -308,15 +316,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'เมื่อทำการเพิ่มรูปสำเร็จแล้ว แอปพลิเคชันจะ\nนำรูปไปประมวลผลแล้วคัดแยกรูปเข้าอัลบั้ม\nให้โดยอัตโนมัติ โดยจะแบ่งการแยกเป็น\n\n - รูปที่ไม่ใช่เอกสารการเรียน\nแอปพลิเคชันจะทำการสร้างอัลบั้มตามหมวดที่มี\nอยู่ให้อัตโนมัติ \n\n - รูปที่เป็นเอกสารการเรียนแต่ไม่มีเนื้อหาใน\nอัลบั้มวิชารูปภาพนั้นจะถูกนำไปไว้ในอัลบั้ม\nDocument+Education \n\n - รูปที่เป็นเอกสารการเรียนมีเนื้อหาใน\nอัลบั้มวิชารูปภาพนั้นจะถูกนำไปไว้ในอัลบั้มวิชาต่างๆ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'เมื่อทำการเพิ่มรูปสำเร็จแล้ว แอปพลิเคชันจะนำรูปไปประมวลผลแล้วคัดแยกรูปเข้าอัลบั้มให้โดยอัตโนมัติ โดยจะแบ่งการแยกเป็น\n - รูปที่ไม่ใช่เอกสารการเรียน\nแอปพลิเคชันจะทำการสร้างอัลบั้มตามหมวดที่มี\nอยู่ให้อัตโนมัติ \n\n - รูปที่เป็นเอกสารการเรียนแต่ไม่มีเนื้อหาใน\nอัลบั้มวิชารูปภาพนั้นจะถูกนำไปไว้ในอัลบั้ม\nDocument+Education \n\n - รูปที่เป็นเอกสารการเรียนมีเนื้อหาใน\nอัลบั้มวิชารูปภาพนั้นจะถูกนำไปไว้ในอัลบั้มวิชาต่างๆ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -346,15 +356,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'สามารถดูรูปในอัลบั้มได้โดยคลิ๊กอัลบั้มที่ต้องการ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'สามารถดูรูปในอัลบั้มได้โดยคลิ๊กอัลบั้มที่ต้องการ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -384,15 +396,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'การย้ายรูปภาพ สามารถทำได้โดย\n\n1. กดไอคอนย้ายไฟล์ด้านบนขวา\n2. กดเลือกรูปภาพที่ต้องการย้าย\n3. เลือกอัลบั้มที่ต้องการย้ายไป\n4. กดยืนยันการย้าย',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'การย้ายรูปภาพ สามารถทำได้โดย\n\n1. กดไอคอนย้ายไฟล์ด้านบนขวา\n2. กดเลือกรูปภาพที่ต้องการย้าย\n3. เลือกอัลบั้มที่ต้องการย้ายไป\n4. กดยืนยันการย้าย',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(
@@ -446,15 +460,17 @@ class Howto1 extends State<HowToUse1> {
                               Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'การลบรูปภาพ สามารถทำได้โดย\n1. กดไอคอนถังขยะด้านบนขวา \n2. กดเลือกรูปที่ต้องการลบ \n3. กดยืนยันการลบ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: MyStyle().blackColor,
-                                      fontFamily: 'Rajdhani',
+                                children: <Widget>[
+                                  Flexible(
+                                    child: Text(
+                                      'การลบรูปภาพ สามารถทำได้โดย\n1. กดไอคอนถังขยะด้านบนขวา \n2. กดเลือกรูปที่ต้องการลบ \n3. กดยืนยันการลบ',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: MyStyle().blackColor,
+                                        fontFamily: 'Rajdhani',
+                                      ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                               Padding(

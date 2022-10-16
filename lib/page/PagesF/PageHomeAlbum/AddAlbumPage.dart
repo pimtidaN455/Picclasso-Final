@@ -13,17 +13,6 @@ import 'package:project_photo_learn/page/PagesF/first.dart';
 
 import '../../Backend/User_data.dart';
 
-var all = [
-  "คณิตศาสตร์",
-  "สังคม",
-  "ภาษาไทย",
-  "สุขศึกษา",
-  "บันนทึกการอ่าน",
-  "ภาษาอังกฤษ",
-  "คอมพิวเตอร์",
-  "ประวัติศาสตร์"
-];
-
 class Add_Album_Page extends StatefulWidget {
   const Add_Album_Page({Key? key}) : super(key: key);
   @override
@@ -161,47 +150,30 @@ class Add_Album_PageState extends State<Add_Album_Page> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
-                child: TypeAheadField(
-                  textFieldConfiguration: TextFieldConfiguration(
-                    controller: Add_Keyword_SubJ,
-                    onEditingComplete: () {
-                      controller.listTagAdd.add(Add_Keyword_SubJ.text);
-                      Add_Keyword_SubJ.clear();
-                    },
-                    autofocus: false,
-                    style: TextStyle(fontSize: 20),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Keyword',
-                      //contentPadding: EdgeInsets.symmetric(vertical: 2),
-                      // prefixIcon: Icon(Icons.tag),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          if (Add_Keyword_SubJ.text != "") {
-                            controller.listTagAdd.add(Add_Keyword_SubJ.text);
-                          }
-                          Add_Keyword_SubJ.clear();
-                        },
-                        icon: const Icon(Icons.add),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                child: TextFormField(
+                  controller: Add_Keyword_SubJ,
+                  onEditingComplete: () {
+                    controller.listTagAdd.add(Add_Keyword_SubJ.text);
+                    Add_Keyword_SubJ.clear();
+                  },
+                  autofocus: false,
+                  style: TextStyle(fontSize: 20),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Keyword',
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        if (Add_Keyword_SubJ.text != "") {
+                          //controller.listTagBum.add(keyword);
+                          controller.listTagAdd.add(Add_Keyword_SubJ.text);
+                        }
+                        Add_Keyword_SubJ.clear();
+                      },
+                      icon: const Icon(Icons.add),
                     ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
                   ),
-                  suggestionsCallback: (String pattern) {
-                    return all.where(
-                        (e) => e.toLowerCase().contains(pattern.toLowerCase()));
-                  },
-                  onSuggestionSelected: (String suggestion) =>
-                      controller.listTagAdd.add(suggestion),
-                  itemBuilder: (BuildContext context, Object? itemData) {
-                    return ListTile(
-                      leading: Icon(Icons.tag),
-                      title: Text(itemData.toString()),
-                    );
-                  },
                 ),
               ),
               SizedBox(
