@@ -30,10 +30,10 @@ class AlertDialogs_move_img {
     print(dataalbum);
     print("////");
     for (int i = 0; i < dataalbum.length; ++i) {
-      list.add(dataalbum[i]['NAMEALBUM'] +
-          " (" +
+      list.add(dataalbum[i]['NAMEALBUM']);
+      /*  " (" +
           dataalbum[i]['IDENTITYALBUM'] +
-          ") ");
+          ") ");*/
     }
     var image = imageListD;
     print("////");
@@ -72,30 +72,6 @@ class AlertDialogs_move_img {
                     );
                   }).toList(),
                 ),
-                /*child: TypeAheadField(
-                getImmediateSuggestions: true,
-                onSuggestionSelected: (suggestion) {
-                  print("suuuuuuu");
-                  print(suggestion);
-
-                  /* Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ProductPage(product: suggestion)));*/
-                },
-                textFieldConfiguration: TextFieldConfiguration(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), hintText: ";lsf;s"),
-                ),
-                suggestionsCallback: (pattern) async {
-                  return await BackendService.getSuggestions(pattern);
-                },
-                itemBuilder: (context, suggestion) {
-                  return ListTile(
-                    leading: Icon(Icons.shopping_cart),
-                    title: Text(suggestion.toString()),
-                  );
-                },
-              ),*/
               ),
               actions: <Widget>[
                 new FlatButton(
@@ -261,31 +237,5 @@ class BackendService {
     return List.generate(dataalbum.length, (index) {
       return dataalbum[index]["NAMEALBUM"];
     });
-  }
-}
-
-class CitiesService {
-  static final List<String> cities = [
-    'Beirut',
-    'Damascus',
-    'San Fransisco',
-    'Rome',
-    'Los Angeles',
-    'Madrid',
-    'Bali',
-    'Barcelona',
-    'Paris',
-    'Bucharest',
-    'New York City',
-    'Philadelphia',
-    'Sydney',
-  ];
-
-  static List<String> getSuggestions(String query) {
-    List<String> matches = [];
-    matches.addAll(cities);
-
-    matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
-    return matches;
   }
 }

@@ -468,17 +468,19 @@ class select_gotoshowDes extends StatelessWidget {
         padding: EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              "Sentence search : " + this.word_for_des.toString(),
-              style: TextStyle(
-                fontSize: 20,
-                color: MyStyle().blackColor,
-                fontWeight: FontWeight.bold,
-                //fontStyle: FontStyle.normal,
-                fontFamily: 'Rajdhani',
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                "Sentence search : " + this.word_for_des.toString(),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: MyStyle().blackColor,
+                  fontWeight: FontWeight.bold,
+                  //fontStyle: FontStyle.normal,
+                  fontFamily: 'Rajdhani',
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -490,13 +492,9 @@ class select_gotoshowDes extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                "---------------------------------------------------------" +
-                    "\n" +
-                    "The image you searched for was not found." +
-                    "\n"
-                        "----------------------------------------------------------",
+                "The image you searched for was not found.",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: MyStyle().deleteColor,
                   fontWeight: FontWeight.bold,
                   //fontStyle: FontStyle.normal,

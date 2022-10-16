@@ -41,9 +41,25 @@ class _SelectImageCloudState extends State<SelectImageCloud> {
                 )),
             onPressed: () async {
               print("/////**/////**");
+              int checkkk = 0;
               setState(() {
-                for (var i = 0; i < this.imageList.length; i++)
-                  this.imageList[i].isSelected = !this.imageList[i].isSelected;
+                if (this.imageList.length != 0) {
+                  for (var k = 0; k < this.imageList.length; k++) {
+                    if (this.imageList[k].isSelected == true) {
+                      checkkk = checkkk + 1;
+                    }
+                  }
+                  for (var i = 0; i < this.imageList.length; i++) {
+                    if (checkkk != this.imageList.length) {
+                      this.imageList[i].isSelected = false;
+                    }
+                  }
+
+                  for (var i = 0; i < this.imageList.length; i++) {
+                    this.imageList[i].isSelected =
+                        !this.imageList[i].isSelected;
+                  }
+                }
               });
             },
           ),

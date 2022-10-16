@@ -83,11 +83,28 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
             ),
             onPressed: () async {
               print("/////**/////**");
+              int checkk = 0;
               setState(() {
-                for (var i = 0; i < this.imageListD.length; i++)
-                  this.imageListD[i].isSelected =
-                      !this.imageListD[i].isSelected;
+                if (this.imageListD.length != 0) {
+                  for (var k = 0; k < this.imageListD.length; k++) {
+                    if (this.imageListD[k].isSelected == true) {
+                      checkk = checkk + 1;
+                    }
+                  }
+                  for (var i = 0; i < this.imageListD.length; i++) {
+                    if (checkk != this.imageListD.length) {
+                      this.imageListD[i].isSelected = false;
+                    }
+                  }
+
+                  for (var i = 0; i < this.imageListD.length; i++) {
+                    this.imageListD[i].isSelected =
+                        !this.imageListD[i].isSelected;
+                  }
+                }
               });
+              print("จำนวนรูปที่เลือก");
+              print(this.imageListD);
             },
           ),
           IconButton(
@@ -166,12 +183,6 @@ class _SelectImageDeviceState extends State<SelectImageHomePage> {
                         !this.imageListD[index].isSelected;
                   });
                 }
-                /*    if (this.imageListC.length != 0) {
-                  setState(() {
-                    this.imageListC[index].isSelected =
-                        !this.imageListC[index].isSelected;
-                  });
-                }*/
               },
               child: Stack(
                 children: [
