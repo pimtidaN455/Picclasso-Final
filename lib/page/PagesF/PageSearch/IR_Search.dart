@@ -113,7 +113,6 @@ class Ir {
     for (var i in countdfx.keys) {
       listword.add(i);
     }
-    //print("%%%%%%%%%%%%%%%%");
     return listword;
   }
 
@@ -237,7 +236,6 @@ class Ir {
 
   answer_IR(var similaryty) {
     var answer = [];
-    var sortedByValueMap = similaryty.values.toList()..sort();
     var sortedKeys = SplayTreeMap.from(similaryty,
         (key1, key2) => similaryty[key1]!.compareTo(similaryty[key2]!));
 
@@ -247,7 +245,7 @@ class Ir {
     int j = 0;
     for (var i in sortedKeys.keys) {
       j++;
-      if (sortedKeys[i] != 0 && j < 10) {
+      if (sortedKeys[i] != 0) {
         answer.add(i);
       }
     }

@@ -46,7 +46,7 @@ class Searchpage extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
-                "\n   Text you want to search. ",
+                "\n   Description search. ",
                 style: TextStyle(
                   fontSize: 20,
                   color: MyStyle().blackColor,
@@ -78,7 +78,7 @@ class Searchpage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Text(
-                  "  Keyword you want to search. ",
+                  "  Keyword search. ",
                   style: TextStyle(
                     fontSize: 20,
                     color: MyStyle().blackColor,

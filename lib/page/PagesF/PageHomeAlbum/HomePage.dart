@@ -306,6 +306,33 @@ class _GridItem_Cloud extends StatelessWidget {
     print("อิมเมจจจจจจจจจจ");
     print(title);
     print(img);
+    var listNameBumServer = [
+      'Animals',
+      'Art',
+      'Cartoon',
+      'Document+Education',
+      'Foods',
+      'Meme',
+      'Object',
+      'Person',
+      'Place',
+      'Plant',
+      'Raw_Material',
+      'Vehicle'
+    ];
+    int nub = 0;
+    var colorbum;
+    for (int i = 0; i < 12; i++) {
+      if (listNameBumServer[i] == title) {
+        nub = nub + 1;
+      }
+    }
+    if (nub != 0) {
+      colorbum = 'Perple';
+    }
+    if (nub == 0) {
+      colorbum = 'Dark';
+    }
     return CachedNetworkImage(
       imageUrl: img,
       imageBuilder: (context, imageProvider) {
@@ -341,21 +368,15 @@ class _GridItem_Cloud extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  /*decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: selected ?? false ? Colors.red : Colors.transparent,
-                  width: selected ?? false ? 5 : 0,
-                ),
-              ),
-            ),*/
                   padding: const EdgeInsets.all(8.0),
                   child: Row(children: <Widget>[
                     AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.black87,
+                        color: colorbum == 'Perple'
+                            ? MyStyle().darkColor
+                            : MyStyle().perpleColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
@@ -408,6 +429,33 @@ class _GridItem_Devoce extends StatelessWidget {
     print("อิมเมจจจจจจจจจจ");
     print(title);
     print(img);
+    var listNameBumServer = [
+      'Animals',
+      'Art',
+      'Cartoon',
+      'Document+Education',
+      'Foods',
+      'Meme',
+      'Object',
+      'Person',
+      'Place',
+      'Plant',
+      'Raw_Material',
+      'Vehicle'
+    ];
+    int nub = 0;
+    var colorbum;
+    for (int i = 0; i < 12; i++) {
+      if (listNameBumServer[i] == title) {
+        nub = nub + 1;
+      }
+    }
+    if (nub != 0) {
+      colorbum = 'Perple';
+    }
+    if (nub == 0) {
+      colorbum = 'Dark';
+    }
     return Ink.image(
       fit: BoxFit.cover,
       image: FileImage(File(img)),
@@ -448,7 +496,9 @@ class _GridItem_Devoce extends StatelessWidget {
                     duration: const Duration(milliseconds: 300),
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.black87,
+                      color: colorbum == 'Perple'
+                          ? MyStyle().darkColor
+                          : MyStyle().perpleColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(

@@ -141,12 +141,12 @@ class _rename_albumState extends State<rename_album> {
           final emailRegex = RegExp(
               r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
           if (value!.isEmpty) {
-            return "Please enter Email for repassword";
+            return "Please enter Name";
           }
           if (emailRegex.hasMatch(value)) {
             return null;
           } else
-            return "Please enter a valid email.";
+            return "";
         },
       ),
     );

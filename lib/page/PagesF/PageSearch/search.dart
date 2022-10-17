@@ -9,7 +9,6 @@ class search {
   data_image_answer_search(var answer_search_des) async {
     var listimageshow_search = {};
     var listimageshow_cloud_des = [];
-
     use_API api = new use_API();
     var listimageshow_device_des = [];
     DBHelper db = new DBHelper();
@@ -76,6 +75,7 @@ class search {
     return img_all;
   }
 
+//รับ des
   use_search_IR(var query) async {
     use_API api = new use_API();
     var data_allpic = [];
@@ -114,9 +114,6 @@ class search {
       }
     }
     print(data_allpic);
-    //var nameclass = ["สังคม", "คอม", "อังกฤษ", "สุขศึกษา"];
-
-    //String todsob = "ทดสอบ Text ที่มีหมาและแมวแต่อยากให้มีหมามากกว่า เพระาอยากได้คำตอบเป็นหมา หมา หมา หมา แล้วก็ หมาอีกที เพราะหมาน่ารักกว่าแมว";
 
     Ir callIr = new Ir();
     if (data_allpic.length != 0) {

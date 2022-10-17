@@ -169,7 +169,7 @@ class AlertDialogs_manage_album {
                   await showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: Text('อัพเดทอัลบั้มสำเร็จ'),
+                      title: Text('Update Success'),
                     ),
                   );
 

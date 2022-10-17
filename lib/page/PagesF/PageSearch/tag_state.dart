@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:project_photo_learn/Sqfl/DBHelper.dart';
-//import 'package:get/get_state_manager/get_state_manager.dart';
 
 class TagStateController extends GetxController {
   var listTagAdd = List<String>.empty(growable: true).obs;
@@ -37,8 +36,6 @@ class ManageTag {
         }
       }
     }
-    //print(AllTag[0].runtimeType);
     return AllTag;
-    //return list ของ Tag ทั้งหมด;
   }
 }

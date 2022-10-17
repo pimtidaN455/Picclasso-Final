@@ -3,13 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:project_photo_learn/Object/imagecloud.dart';
-//import 'package:project_photo_learn/Sqfl/DBHelper.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageSearch/tag_state.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
-//@dart=2.9
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,14 +79,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     //////////////////////////// รับสถานะเช็ค ///////////////////////////
-    //bool i = true;
+
     var page_material;
     print("---------------AAAAAAA--------------");
     print(listimageshow);
-    // print(ListImgCloud[0].gettoString());
-    //print(ListImgCloud[0].geturlimage());
     if (user.Login) {
-      //if (i) {
       print("jj");
       page_material = FirstState(
           page: 0,
@@ -99,9 +94,6 @@ class _MyAppState extends State<MyApp> {
     } else {
       page_material = Start_page();
     }
-
-    /* 
-*/
     return MaterialApp(
       home: page_material,
     );

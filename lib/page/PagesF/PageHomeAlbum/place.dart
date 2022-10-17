@@ -10,7 +10,6 @@ class Place {
   final String subtitle;
 }
 
-////////////////////////////////////////////////
 class AllImage {
   AllImage({
     required this.image,
