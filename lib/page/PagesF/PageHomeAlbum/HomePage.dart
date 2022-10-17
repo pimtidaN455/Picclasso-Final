@@ -1,15 +1,12 @@
 // ignore_for_file: must_be_immutable
 
 import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:project_photo_learn/Object/imagecloud.dart';
 import 'package:project_photo_learn/Sqfl/DBHelper.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/Edit_Album.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/AddAlbumPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/Delete_Albums.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ManageHomePage.dart';
@@ -17,7 +14,6 @@ import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 import 'package:project_photo_learn/page/PagesF/PageSearch/tag_state.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Homepage extends StatefulWidget {
   var user;
@@ -121,7 +117,6 @@ class AlbumScreenWidget extends State<Homepage> {
             IconButton(
               icon: Icon(
                 Icons.add_photo_alternate_outlined,
-                //Icons.add_a_photo_outlined,
                 color: MyStyle().blackColor,
               ),
               onPressed: () async {
@@ -137,12 +132,8 @@ class AlbumScreenWidget extends State<Homepage> {
                 }
                 user_file user = await new user_file();
                 await user.getdata_user_file();
-                //     var user0 = await user;
                 var ListImgCloud;
                 var listimageshow;
-
-                //
-
                 if (await user.Login) {
                   DBHelper db = DBHelper();
                   await db.deletedata_intable();
@@ -161,8 +152,6 @@ class AlbumScreenWidget extends State<Homepage> {
                 var ListTag = [];
                 ManageTag mnt = new ManageTag();
                 ListTag = await mnt.getTagAlbum();
-
-////////////////////////////////////////////////
 
                 await Navigator.push(
                     context,
@@ -238,18 +227,6 @@ class AlbumScreenWidget extends State<Homepage> {
                 print("////*************////////////");
               },
             ),
-            /*TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Edit ",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: MyStyle().blackColor,
-                    fontWeight: FontWeight.bold,
-                    //fontStyle: FontStyle.normal,
-                    fontFamily: 'Rajdhani',
-                  ),
-                ))*/
           ],
           automaticallyImplyLeading: false,
         ),

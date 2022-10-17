@@ -103,7 +103,16 @@ class Searchpage extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Keywords you want to search ',
-                      //prefixIcon: Icon(Icons.tag),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          if (textController.text != "") {
+                            //controller.listTagBum.add(keyword);
+                            controller.listTagSearch.add(textController.text);
+                          }
+                          textController.clear();
+                        },
+                        icon: const Icon(Icons.add),
+                      ),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)),
                     ),

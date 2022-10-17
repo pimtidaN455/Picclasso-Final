@@ -139,55 +139,38 @@ class Edit_keyword_imgState extends State<Edit_keyword_img> {
             fontFamily: 'Rajdhani',
           ),
         ),
+        ////////////////////////////////////////////////////
         Padding(
           padding: const EdgeInsets.all(8),
-          child: TypeAheadField(
-            textFieldConfiguration: TextFieldConfiguration(
-              controller: Edit_Keyword,
-              onEditingComplete: () {
-                if (Edit_Keyword.text != "")
-
-                  //controller.listTagBum.add(keyword);
-                  controller.listTagBum.add(Edit_Keyword.text);
-                Edit_Keyword.clear();
-              },
-              autofocus: false,
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "",
-                //contentPadding: EdgeInsets.symmetric(vertical: 2),
-                prefixIcon: Icon(Icons.tag),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    if (Edit_Keyword.text != "") {
-                      //controller.listTagBum.add(keyword);
-                      controller.listTagBum.add(Edit_Keyword.text);
-                    }
-                    Edit_Keyword.clear();
-                  },
-                  icon: const Icon(Icons.add),
-                ),
-                enabledBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                focusedBorder:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          child: TextFormField(
+            controller: Edit_Keyword,
+            onEditingComplete: () {
+              if (Edit_Keyword.text != "")
+                controller.listTagBum.add(Edit_Keyword.text);
+              Edit_Keyword.clear();
+            },
+            autofocus: false,
+            style: TextStyle(fontSize: 20),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "",
+              //prefixIcon: Icon(Icons.tag),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  if (Edit_Keyword.text != "") {
+                    //controller.listTagBum.add(keyword);
+                    controller.listTagBum.add(Edit_Keyword.text);
+                  }
+                  Edit_Keyword.clear();
+                },
+                icon: const Icon(Icons.add),
               ),
+              enabledBorder:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
             ),
-            suggestionsCallback: (String pattern) {
-              return suggestTag2.where(
-                  (e) => e.toLowerCase().contains(pattern.toLowerCase()));
-            },
-            onSuggestionSelected: (String suggestion) =>
-                controller.listTagBum.add(suggestion),
-            itemBuilder: (BuildContext context, Object? itemData) {
-              return ListTile(
-                leading: Icon(Icons.tag),
-                title: Text(itemData.toString()),
-              );
-            },
           ),
         ),
+        //////////////////////////////////////////////////////
         SizedBox(
           height: 10,
         ),
@@ -255,7 +238,6 @@ class Edit_keyword_imgState extends State<Edit_keyword_img> {
             }
           }
           print(listkeyword);
-          //for(int i =0 ; i< )
           print("///////////////////*****////////////////////");
           Navigator.push(
               context,
