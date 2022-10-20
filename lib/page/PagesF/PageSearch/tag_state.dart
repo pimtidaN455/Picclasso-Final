@@ -5,6 +5,12 @@ class TagStateController extends GetxController {
   var listTagAdd = List<String>.empty(growable: true).obs;
   var listTagSearch = List<String>.empty(growable: true).obs;
   var listTagBum = List<String>.empty(growable: true).obs;
+
+  check_tag_Comformable() {
+    for (int i = 0; i < listTagAdd.length; i++) {
+      print(listTagAdd[i].toString());
+    }
+  }
 }
 
 class DesScription extends GetxController {}
@@ -36,6 +42,7 @@ class ManageTag {
         }
       }
     }
+
     return AllTag;
   }
 }

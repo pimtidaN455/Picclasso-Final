@@ -61,8 +61,10 @@ class search {
         for (int i = 0; i < get_photo.length; ++i) {
           print("/////////////////***************////////////////");
           print(get_photo[i]['photodescriptions']);
-
-          if (get_photo[i]['photodescriptions'].indexOf(key) > -1) {
+          var textphoto = get_photo[i]['photodescriptions'] +
+              " " +
+              get_photo[i]['photokeyword'];
+          if (textphoto.indexOf(key) > -1) {
             list_image.add(get_photo[i]['id']);
             img_all['status_all'] = true;
           }

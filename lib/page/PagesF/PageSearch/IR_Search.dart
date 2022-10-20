@@ -173,6 +173,7 @@ class Ir {
     for (var i in query) {
       if (list_check.contains(i) == false) {
         dict_query[i] = 1;
+        list_check.add(i);
       } else {
         var sum = dict_query[i] + 1;
         dict_query[i] = sum;
@@ -232,6 +233,69 @@ class Ir {
       }
     }
     return sim;
+  }
+
+  matching_new(var weigth_query, var weigth) {
+    var listmaching = [];
+    var match = {};
+    var listnamedoc = [];
+    for (var i in weigth_query.keys) {
+      for (var j in weigth.keys) {
+        print(j);
+        if (weigth[j]['nameword'] == i) {
+          for (int k = 0; k < weigth[j]['data_cal_word'].length; k++) {
+            if (listnamedoc
+                .contains(weigth[j]['data_cal_word'][k]["namedoc"])) {
+              listnamedoc.add(weigth[j]['data_cal_word'][k]["namedoc"]);
+              match[weigth[j]['data_cal_word'][k]["namedoc"]] =
+                  weigth[j]['data_cal_word'][k]["Weigth"] * weigth_query[i];
+            } else {
+              var summatch = match[weigth[j]['data_cal_word'][k]["namedoc"]] +
+                  (weigth[j]['data_cal_word'][k]["Weigth"] * weigth_query[i]);
+              match[weigth[j]['data_cal_word'][k]["namedoc"]] = summatch;
+            }
+          }
+        }
+      }
+    }
+    return match;
+  }
+
+  cosinesimilarity(weigth_query, matching_newS, quary_match) {
+    var root_query = 0;
+    for (var i in weigth_query.keys) {
+      var root_query;
+      root_query = root_query + (weigth_query[i] * weigth_query[i]);
+    }
+    var sqrt_query;
+    sqrt_query = sqrt(root_query);
+    var sumb_doc = {};
+    for (var j in quary_match.keys) {
+      for (int k = 0; k < quary_match[j]['data_cal_word'].length; k++) {
+        sumb_doc[quary_match[j]['data_cal_word'][k]["namedoc"]] = 0;
+      }
+    }
+    for (var j in quary_match.keys) {
+      for (int k = 0; k < quary_match[j]['data_cal_word'].length; k++) {
+        var d;
+        d = sumb_doc[quary_match[j]['data_cal_word'][k]["namedoc"]] +
+            (quary_match[j]['data_cal_word'][k]["Weigth"] *
+                quary_match[j]['data_cal_word'][k]["Weigth"]);
+      }
+    }
+    var sqrt_doc = {};
+    for (var l in sumb_doc.keys) {
+      sqrt_doc[l] = sqrt(sumb_doc[l]);
+    }
+    var consinsim = {};
+    for (var s in matching_newS.keys) {
+      try {
+        consinsim[s] = matching_newS[s] / (sqrt_doc[s] * sqrt_query);
+      } on Exception catch (_) {
+        consinsim[s] = 0;
+      }
+    }
+    return consinsim;
   }
 
   answer_IR(var similaryty) {

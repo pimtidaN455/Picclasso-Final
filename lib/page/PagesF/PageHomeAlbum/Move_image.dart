@@ -30,15 +30,17 @@ class AlertDialogs_move_img {
     print(dataalbum);
     print("////");
     print("เช็คคคคคค");
-    var araikordai = "yehwow (Usercreate)";
-    print(araikordai.indexOf("(Ucreate)"));
-    print(araikordai.substring(
-        0, (araikordai.length - "(Usercreate)".length) - 1));
+    var sortAlbumName = [];
     for (int i = 0; i < dataalbum.length; ++i) {
       if (dataalbum[i]['IDENTITYALBUM'] == "Usercreate") {
-        list.add(dataalbum[i]['NAMEALBUM'] + " (Usercreate)");
+        sortAlbumName.add(dataalbum[i]['NAMEALBUM'] + " (Usercreate)");
       }
     }
+    var allsort;
+    sortAlbumName.sort();
+    allsort = sortAlbumName;
+    print("/////////// allsort ///////////");
+    print(allsort);
     var listNameBumServer = [
       'Animals (ServerCreate)',
       'Art (ServerCreate)',
@@ -53,6 +55,10 @@ class AlertDialogs_move_img {
       'Raw_Material (ServerCreate)',
       'Vehicle (ServerCreate)'
     ];
+    for (int i = 0; i < allsort.length; i++) {
+      list.add(allsort[i]);
+    }
+    //list.addAll(allsort);
     list.addAll(listNameBumServer);
     var image = imageListD;
     print("////");

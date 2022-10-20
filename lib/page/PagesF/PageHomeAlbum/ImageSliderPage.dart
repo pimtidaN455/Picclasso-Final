@@ -148,51 +148,59 @@ class SlideImageDevice extends State<SlideImageD2>
               selectPic; //ลิ้งค์รูปคาว*/
             },
           ),
-          if (this.status_album == "Usercreate" ||
-              this.title == "Document+Education")
-            IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: MyStyle().blackColor,
-              ),
-              onPressed: () async {
-                DBHelper db = new DBHelper();
-
-                var photodata = await db.getPhoto_from_id(this.keyimg);
-                print("///////////////////*****////////////////////");
-                print(this.keyimg);
-                print(photodata);
-                var keyword = "";
-                var listkeyword = [];
-                for (int i = 0; i < photodata[0]['photokeyword'].length; ++i) {
-                  if (photodata[0]['photokeyword'][i] != '/') {
-                    keyword += photodata[0]['photokeyword'][i];
-                  } else {
-                    listkeyword.add(keyword);
-                    keyword = "";
-                  }
-                }
-                print(listkeyword);
-                //for(int i =0 ; i< )
-                print("///////////////////*****////////////////////");
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Edit_keyword_img(
-                            keyword: listkeyword,
-                            namealbumS: this.title,
-                            selectpicS: this.selectPic,
-                            listimageshow: this.listimageshow,
-                            keyimg: this.keyimg,
-                            status: this.status,
-                            status_album: this.status_album)));
-
-                //  ua.saveImage(selectpicC);
-
-                //namealbumC; //ชื่อรูปคลาว
-                //selectpicC; //ลิ้งค์รูปคาว
-              },
+          /*    if (this.status_album == "Usercreate" ||
+              this.title == "Document+Education")*/
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: MyStyle().blackColor,
             ),
+            onPressed: () async {
+              DBHelper db = new DBHelper();
+              await db.deletedata_intable();
+              list_album la = await new list_album();
+              await la.getimagefrom_api();
+              DBHelper db2 = new DBHelper();
+              var photodata = await db2.getPhoto_from_id(this.keyimg);
+              print("///////////////////*****////////////////////");
+              print(this.keyimg);
+
+              print(photodata);
+              var keyword = "";
+              var listkeyword = [];
+              for (int i = 0;
+                  i < await photodata[0]['photokeyword'].length;
+                  ++i) {
+                if (await photodata[0]['photokeyword'][i] != '/') {
+                  keyword += await photodata[0]['photokeyword'][i];
+                } else {
+                  listkeyword.add(keyword);
+                  keyword = "";
+                }
+              }
+              list_album listA = new list_album();
+              var showDevice = await listA.getImag_inAlbum(title);
+              print(listkeyword);
+              //for(int i =0 ; i< )
+              print("///////////////////*****////////////////////");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Edit_keyword_img(
+                          keyword: listkeyword,
+                          namealbumS: this.title,
+                          selectpicS: this.selectPic,
+                          listimageshow: showDevice,
+                          keyimg: this.keyimg,
+                          status: this.status,
+                          status_album: this.status_album)));
+
+              //  ua.saveImage(selectpicC);
+
+              //namealbumC; //ชื่อรูปคลาว
+              //selectpicC; //ลิ้งค์รูปคาว
+            },
+          ),
         ],
         leading: IconButton(
             icon: Icon(
@@ -225,10 +233,11 @@ class SlideImageDevice extends State<SlideImageD2>
                   }
                 }*/
               }*/
-
+              list_album listA = new list_album();
+              var showDevice = await listA.getImag_inAlbum(title);
               var Request_page = ShowImage(
                   name: title,
-                  listimageshow: this.listimageshow,
+                  listimageshow: showDevice,
                   statusAlbum: this.status_album);
 
               Navigator.push(context,

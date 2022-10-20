@@ -288,92 +288,132 @@ class Add_Album_PageState extends State<Add_Album_Page> {
         child: Text('Add Album'),
         onPressed: () async {
           print('--------------- Add Album ---------------');
+          print(" ////////////// คีย์เวิร์ดที่รับมาใหม่ //////////////");
+          await controller.check_tag_Comformable();
+          print(" //////////////////////////////////////////");
 
           DBHelper db = new DBHelper();
-          var allalbum = await db.getAlbum();
-          var statusalbum_repeatedly = false;
-          print(Add_Name_SubJ.text);
-          for (int i = 0; i < allalbum.length; ++i) {
-            if (allalbum[i]['NAMEALBUM'] == Add_Name_SubJ.text) {
-              statusalbum_repeatedly = true;
-              print("///true////");
+          List<String> AllTag = [];
+          var dataAlbum = await db.getAlbum();
+          var AllKw = {};
+
+          for (int i = 0; i < dataAlbum.length; i++) {
+            if (dataAlbum[i]["IDENTITYALBUM"] == 'Usercreate') {
+              var Lkw = [];
+              var kw = '';
+              for (int j = 0; j < dataAlbum[i]["KEYWORDALBUM"].length; j++) {
+                if (dataAlbum[i]["KEYWORDALBUM"][j] != "/") {
+                  print(dataAlbum[i]["KEYWORDALBUM"][j]);
+                  kw += dataAlbum[i]["KEYWORDALBUM"][j];
+                } else if (dataAlbum[i]["KEYWORDALBUM"][j] == "/") {
+                  print(kw);
+                  if (Lkw.contains(kw) != true) {
+                    Lkw.add(kw);
+                  }
+                  kw = "";
+                }
+              }
+              AllKw[dataAlbum[i]['NAMEALBUM']] = Lkw;
+              Lkw = [];
+              print(dataAlbum[i]["KEYWORDALBUM"]);
             }
           }
-          print(statusalbum_repeatedly);
-          bool validate = _fromKey.currentState!.validate();
-          if (validate && statusalbum_repeatedly == false) {
+          print("*********เช็คคียทั้งหมด**********");
+          print(AllKw);
+          print("*******************");
+          bool cheack = true;
+          for (var i in AllKw.keys) {
+            var Lenkey = 0;
+            for (int j = 0; j < controller.listTagAdd.length; ++j) {
+              if (AllKw[i].contains(controller.listTagAdd[j])) {
+                Lenkey = Lenkey + 1;
+              }
+            }
+            if (Lenkey == AllKw[i].length) {
+              cheack = false;
+            }
+          }
+
+          if (cheack) {
+            var allalbum = await db.getAlbum();
+            var statusalbum_repeatedly = false;
             print(Add_Name_SubJ.text);
-            var keyword = "";
-            for (int i = 0; i < controller.listTagAdd.length; ++i) {
-              keyword += (controller.listTagAdd[i]) + "/";
+            for (int i = 0; i < allalbum.length; ++i) {
+              if (allalbum[i]['NAMEALBUM'] == Add_Name_SubJ.text) {
+                statusalbum_repeatedly = true;
+                print("///true////");
+              }
             }
+            print(statusalbum_repeatedly);
+            bool validate = _fromKey.currentState!.validate();
+            if (validate && statusalbum_repeatedly == false) {
+              print(Add_Name_SubJ.text);
+              var keyword = "";
+              for (int i = 0; i < controller.listTagAdd.length; ++i) {
+                keyword += (controller.listTagAdd[i]) + "/";
+              }
 
-            use_API use_api = new use_API();
-            use_api.manage_Album(
-                Add_Name_SubJ.text, "", keyword, Add_des.text, "add");
-            //  (namealbum, nameoldalbum, keyword, description, status)
-            print(controller.listTagAdd);
-            print(keyword);
-            print(Add_des.text);
-            user_file user = await new user_file();
-            await user.getdata_user_file();
-            var user0 = await user;
-            var ListImgCloud;
-            var listimageshow;
+              use_API use_api = new use_API();
+              use_api.manage_Album(
+                  Add_Name_SubJ.text, "", keyword, Add_des.text, "add");
+              print(controller.listTagAdd);
+              print(keyword);
+              print(Add_des.text);
+              user_file user = await new user_file();
+              await user.getdata_user_file();
+              var user0 = await user;
+              var ListImgCloud;
+              var listimageshow;
 
-            //
+              //
 
-            if (await user.Login) {
-              /* DBHelper db = DBHelper();
-              await db.deletedata_intable();*/
+              if (await user.Login) {
+                list_album la = new list_album();
+                await la.getimagefrom_api();
+                print(
+                    'LAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLa');
+                print(await la.listimageshow_device);
+                listimagecloud listimgC = new listimagecloud();
+                ListImgCloud = await listimgC.getimagefrom_api();
+                listimageshow = await la.listimageshow;
+                print('\\\\\\\\\\\\\\\\\List\\\\\\\\\\\\\\\\');
+              }
+              await showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: Text('The album was created successfully.'),
+                ),
+              );
 
-              list_album la = new list_album();
-              await la.getimagefrom_api();
-              print(
-                  'LAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLaLAAaaaaaaaLa');
-              print(await la.listimageshow_device);
-              listimagecloud listimgC = new listimagecloud();
-              ListImgCloud = await listimgC.getimagefrom_api();
-              listimageshow = await la.listimageshow;
-              print('\\\\\\\\\\\\\\\\\List\\\\\\\\\\\\\\\\');
-              /*  for (int i = 0; i < ListImgCloud.length; i++) {
-                print(await ListImgCloud[i].gettoString());
-              }*/
+              var ListTag = [];
+              ManageTag mnt = new ManageTag();
+              ListTag = await mnt.getTagAlbum();
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FirstState(
+                          page: 0,
+                          user: user,
+                          listimageshow: listimageshow,
+                          ListImgCloud: ListImgCloud,
+                          AllTagAlbum: ListTag)));
             }
-            await showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertDialog(
-                title: Text('The album was created successfully.'),
-              ),
-            );
-
-            var ListTag = [];
-            ManageTag mnt = new ManageTag();
-            ListTag = await mnt.getTagAlbum();
-
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => FirstState(
-                        page: 0,
-                        user: user,
-                        listimageshow: listimageshow,
-                        ListImgCloud: ListImgCloud,
-                        AllTagAlbum: ListTag)));
-          } /*else {
-            MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                builder: (BuildContext context) => Add_Album_Page());
-            Navigator.of(this.context).push(materialPageRoute);
-          }
-
-          controller.listTagAdd.clear();*/
-
-          if (statusalbum_repeatedly) {
+            if (statusalbum_repeatedly) {
+              await showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: Text(
+                      "Duplicate album name or this is the app's album name."),
+                ),
+              );
+            }
+          } else {
             await showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
                 title: Text(
-                    "Duplicate album name or this is the app's album name."),
+                    "คีย์เวิร์ดที่คุณใส่ทั้งหมดทุกคำตรงกับ คีย์เวิร์ดในอัลบั้มอื่น"),
               ),
             );
           }

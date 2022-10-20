@@ -108,6 +108,9 @@ class Edit_keyword_imgState extends State<Edit_keyword_img> {
               color: Colors.black,
             ),
             onPressed: () async {
+              print("///////////////////*****////////////////////");
+              print(this.keyimg);
+
               Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -221,24 +224,7 @@ class Edit_keyword_imgState extends State<Edit_keyword_img> {
               title: Text('Update keyword success'),
             ),
           );
-          DBHelper db = DBHelper();
 
-          var photodata = await db.getPhoto_from_id(this.keyimg);
-          print("///////////////////*****////////////////////");
-          print(this.keyimg);
-          print(photodata);
-          var keyword = "";
-          var listkeyword = [];
-          for (int i = 0; i < photodata[0]['photokeyword'].length; ++i) {
-            if (photodata[0]['photokeyword'][i] != '/') {
-              keyword += photodata[0]['photokeyword'][i];
-            } else {
-              listkeyword.add(keyword);
-              keyword = "";
-            }
-          }
-          print(listkeyword);
-          print("///////////////////*****////////////////////");
           Navigator.push(
               context,
               MaterialPageRoute(

@@ -291,15 +291,16 @@ class _GridItem_Cloud extends StatelessWidget {
       'Foods',
       'Meme',
       'Object',
+      'Other',
       'Person',
       'Place',
       'Plant',
       'Raw_Material',
-      'Vehicle'
+      'Vehicle',
     ];
     int nub = 0;
     var colorbum;
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 13; i++) {
       if (listNameBumServer[i] == title) {
         nub = nub + 1;
       }
